@@ -55,6 +55,11 @@ int main() {
 	cin.getline(buf, MAX);
 
 	char *str = new(nothrow) char[strlen(buf) + 1];
+	if (!str)
+	{
+		cout << "No memory";
+		exit(1);
+	}
 	strcpy(str, buf);
 
 	giveWords(str, massOfWords);
