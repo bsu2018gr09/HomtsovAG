@@ -67,6 +67,12 @@ int main() {
 
 	for (int i = 0; i < k; i+=2) 
 	{
+		if (massOfWords[i] == massOfWords[k - 1])
+		{
+			cout << massOfWords[i];
+			break;
+		}
+
 		if (strlen(massOfWords[i]) == strlen(massOfWords[i + 1]))
 		{
 			swap(massOfWords[i], massOfWords[i + 1]);
@@ -81,6 +87,8 @@ int main() {
 			cout << massOfWords[i + 1] << ' ';
 		}
 	}
+
+	cout << '\n';
 
 	system("pause");
 	return 0;
