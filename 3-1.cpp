@@ -21,6 +21,11 @@ int giveWords(char *str, char **mass)
 		if (len == 0) break;
 
 		mass[i] = new(nothrow) char[len + 1];
+		if (!mass)
+		{
+			cout << "No memory";
+			exit(1);
+		}
 		strncpy(mass[i], p, len);
 
 		mass[i][len] = '\0';
