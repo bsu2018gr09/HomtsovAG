@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 
+#define _CRT_SECURE_NO_WARNINGS //не вижу задания. Проверять не буду
 #include <iostream> 
 #include <cstring> 
 #include <clocale>
