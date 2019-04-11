@@ -1,4 +1,5 @@
-#define _CRT_SECURE_NO_WARNINGS //не вижу задания. Проверять не буду
+//В строке в каждой паре слов поменять слова местами, если длины слов совпадают, иначе заменить их звёздочками
+#define _CRT_SECURE_NO_WARNINGS 
 #include <iostream> 
 #include <cstring> 
 #include <clocale>
