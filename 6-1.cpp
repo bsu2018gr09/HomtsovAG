@@ -1,4 +1,4 @@
-//������� � ��������� ������������
+//Âåêòîðû â òð¸õìåðíîì ïðîñòðàíñòâå
 #include<iostream>
 #include<cmath>
 
@@ -7,14 +7,16 @@ using namespace std;
 class Vector 
 {
 public:
-	Vector(float X, float Y, float Z)
+	Vector(float X, float Y, float Z)// где список инициализации????
 	{
 		cout << "Constructor is working\n";
 		x = X;
 		y = Y;
 		z = Z;
 	}
-
+// где конструктор по умолчанию?
+	//где умножение на число?
+	//где сумма с числом?
 	~Vector()
 	{
 		cout << "Destructor is working\n";
@@ -22,34 +24,34 @@ public:
 
 	friend Vector operator + (Vector& left, Vector& right)
 	{
-		float tmpx = left.x + right.x;
-		float tmpy = left.y + right.y;
-		float tmpz = left.z + right.z;
+		float tmpx = left.x + right.x; //зачем столько плодить временных переменных????
+		float tmpy = left.y + right.y;//зачем столько плодить временных переменных????
+		float tmpz = left.z + right.z;//зачем столько плодить временных переменных????
 		return Vector(tmpx, tmpy, tmpz);
 	}
 
 	friend Vector operator - (Vector& left, Vector& right)
 	{
-		float tmpx = left.x - right.x;
-		float tmpy = left.y - right.y;
-		float tmpz = left.z - right.z;
+		float tmpx = left.x - right.x;//зачем столько плодить временных переменных????
+		float tmpy = left.y - right.y;//зачем столько плодить временных переменных????
+		float tmpz = left.z - right.z;//зачем столько плодить временных переменных????
 		return Vector(tmpx, tmpy, tmpz);
 	}
 
-	friend Vector operator * (Vector& left, Vector& right)   //��������� ������������
+	friend Vector operator * (Vector& left, Vector& right)   //ñêàëÿðíîå ïðîèçâåäåíèå
 	{
-		float tmpx = left.x * right.x;
-		float tmpy = left.y * right.y;
-		float tmpz = left.z * right.z;
-		float tmpexit = tmpx + tmpy + tmpz;
-		return Vector(tmpexit, 0, 0);
+		float tmpx = left.x * right.x;//зачем столько плодить временных переменных????
+		float tmpy = left.y * right.y;//зачем столько плодить временных переменных????
+		float tmpz = left.z * right.z;//зачем столько плодить временных переменных????
+		float tmpexit = tmpx + tmpy + tmpz;//зачем столько плодить временных переменных????
+		return Vector(tmpexit, 0, 0);//не понял. Это вектор????????
 	}
 
-	friend Vector operator *= (Vector& left, Vector& right)   //��������� ������������
+	friend Vector operator *= (Vector& left, Vector& right)   //âåêòîðíîå ïðîèçâåäåíèå
 	{
-		float tmpx = left.y * right.z - left.z * right.y;
-		float tmpy = -(left.x * right.z - left.z * right.x);
-		float tmpz = left.x * right.y - left.y * right.x;
+		float tmpx = left.y * right.z - left.z * right.y;//зачем столько плодить временных переменных????
+		float tmpy = -(left.x * right.z - left.z * right.x);//зачем столько плодить временных переменных????
+		float tmpz = left.x * right.y - left.y * right.x;//зачем столько плодить временных переменных????
 		return Vector(tmpx, tmpy, tmpz);
 	}
 
@@ -96,8 +98,8 @@ int main()
 	cin >> e;
 	cout << e << '\n';
 
-	Vector scalM = a * b;   //��������� ���������
-	Vector vectM = a *= b;   //��������� ���������
+	Vector scalM = a * b;   //ñêàëÿðíîå óìíîæåíèå
+	Vector vectM = a *= b;   //âåêòîðíîå óìíîæåíèå
 	cout << scalM << '\n' << vectM << '\n';
 
 	system("pause");
