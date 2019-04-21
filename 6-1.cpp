@@ -1,4 +1,4 @@
-//Âåêòîðû â òð¸õìåðíîì ïðîñòðàíñòâå
+//Векторы в трёхмерном пространстве.
 #include<iostream>
 #include<cmath>
 
@@ -7,60 +7,116 @@ using namespace std;
 class Vector 
 {
 public:
-	Vector(float X, float Y, float Z)// где список инициализации????
+	/**
+	 * Конструктор с параметрами.
+	 */
+	Vector(double X, double Y, double Z) : x(X), y(Y), z(Z)
 	{
-		cout << "Constructor is working\n";
-		x = X;
-		y = Y;
-		z = Z;
+		//cout << "Constructor is working\n";
 	}
-// где конструктор по умолчанию?
-	//где умножение на число?
-	//где сумма с числом?
+
+	/**
+	 * Конструктор по умолчанию.
+	 */
+	Vector() {}
+
+	/**
+	 * Деструктор.
+	 */
 	~Vector()
 	{
-		cout << "Destructor is working\n";
+		//cout << "Destructor is working\n";
 	}
 
-	friend Vector operator + (Vector& left, Vector& right)
+	/**
+	 * Сложение двух векторов.
+	 * Сложение вектора с числом невозможно.
+	 * @param Vector left
+	 * @param Vector right
+	 * @return Vector
+	 */
+	friend Vector operator + (Vector& left, Vector& right)  
 	{
-		float tmpx = left.x + right.x; //зачем столько плодить временных переменных????
-		float tmpy = left.y + right.y;//зачем столько плодить временных переменных????
-		float tmpz = left.z + right.z;//зачем столько плодить временных переменных????
-		return Vector(tmpx, tmpy, tmpz);
+		return Vector
+		(
+			left.x + right.x, 
+			left.y + right.y, 
+			left.z + right.z
+		);
 	}
 
+	/**
+	 * Разность двух векторов.
+	 * @param Vector left
+	 * @param Vector right
+	 * @return Vector
+	 */
 	friend Vector operator - (Vector& left, Vector& right)
 	{
-		float tmpx = left.x - right.x;//зачем столько плодить временных переменных????
-		float tmpy = left.y - right.y;//зачем столько плодить временных переменных????
-		float tmpz = left.z - right.z;//зачем столько плодить временных переменных????
-		return Vector(tmpx, tmpy, tmpz);
+		return Vector
+		(
+			left.x - right.x, 
+			left.y - right.y, 
+			left.z - right.z
+		);
 	}
 
-	friend Vector operator * (Vector& left, Vector& right)   //ñêàëÿðíîå ïðîèçâåäåíèå
+	/**
+	 * Умножение вектора на число.
+	 * Число должно быть записано в переменную, т.к. происходит передача по ссылке
+	 * @param Vector left
+	 * @param double right
+	 * @return Vector
+	 */
+	friend Vector operator * (Vector& left, double& right)   
 	{
-		float tmpx = left.x * right.x;//зачем столько плодить временных переменных????
-		float tmpy = left.y * right.y;//зачем столько плодить временных переменных????
-		float tmpz = left.z * right.z;//зачем столько плодить временных переменных????
-		float tmpexit = tmpx + tmpy + tmpz;//зачем столько плодить временных переменных????
-		return Vector(tmpexit, 0, 0);//не понял. Это вектор????????
+		return Vector
+		(
+			left.x * right, 
+			left.y * right, 
+			left.z * right
+		);
 	}
 
-	friend Vector operator *= (Vector& left, Vector& right)   //âåêòîðíîå ïðîèçâåäåíèå
+	/**
+	 * Скалярное произведение двух векторов.
+	 * @param Vector left
+	 * @param Vector right
+	 * @return double
+	 */
+	friend double operator * (Vector& left, Vector& right) 
 	{
-		float tmpx = left.y * right.z - left.z * right.y;//зачем столько плодить временных переменных????
-		float tmpy = -(left.x * right.z - left.z * right.x);//зачем столько плодить временных переменных????
-		float tmpz = left.x * right.y - left.y * right.x;//зачем столько плодить временных переменных????
-		return Vector(tmpx, tmpy, tmpz);
+		return left.x * right.x + left.y * right.y + left.z * right.z;
 	}
 
+	/**
+	 * Векторное произведение двух векторов.
+	 * @param Vector left
+	 * @param Vector right
+	 * @return Vector
+	 */
+	friend Vector operator & (Vector& left, Vector& right)   
+	{
+		return Vector
+		(
+			left.y * right.z - left.z * right.y, 
+			-(left.x * right.z - left.z * right.x), 
+			left.x * right.y - left.y * right.x
+		);
+	}
+
+	/**
+	 * Оператор вывода.
+	 */
 	friend ostream& operator << (ostream &stream, const Vector& i)
 	{
 		stream << i.x << '\t' << i.y << '\t' << i.z;
 		return stream;
 	}
 
+	/**
+	 * Оператор ввода.
+	 */
 	friend istream& operator >> (istream& stream, Vector& i) 
 	{ 
 		stream >> i.x;
@@ -69,6 +125,9 @@ public:
 		return stream;
 	}
 
+	/**
+	 * Оператор присваивания.
+	 */
 	const Vector& operator = (const Vector& i) 
 	{
 		if (this != &i) 
@@ -80,27 +139,46 @@ public:
 		return *this;
 	}
 private:
-	float x;
-	float y;
-	float z;
+	double x;
+	double y;
+	double z;
 };
 
 int main()
 {
-	Vector a(1, 1, 1);
-	Vector b(2, 10, 2);
-	Vector sum = a + b;
-	Vector diff = a - b;
-	cout << sum << '\n';
-	cout << diff << '\n';
+	setlocale(LC_ALL, "Russian");
 
-	Vector e(0, 0, 0);
-	cin >> e;
-	cout << e << '\n';
+	Vector a;
+	cout << "Значения координат вектора после вызова конструктора по умолчанию:\t" << a << endl;
 
-	Vector scalM = a * b;   //ñêàëÿðíîå óìíîæåíèå
-	Vector vectM = a *= b;   //âåêòîðíîå óìíîæåíèå
-	cout << scalM << '\n' << vectM << '\n';
+	Vector b(57, 10, 36);
+	cout << "Значения координат вектора после вызова конструктора с параметрами:\t" << b << endl;
+
+	Vector c(3, 2, 7);
+	cout << "Значения координат вектора после вызова конструктора с параметрами:\t" << c << endl;
+
+	double x(3.0);
+
+	cout << "Работа оператора сложения:\t"; 
+	cout << b + c;
+	cout << endl;
+
+	cout << "Работа оператора вычитания:\t";
+	cout << b - c;
+	cout << endl;
+
+	cout << "Работа оператора умножения на число:\t";
+	cout << b * x;
+	cout << endl;
+
+	cout << "Работа оператора скалярного умножения:\t";
+	cout << b * c;
+	cout << endl;
+
+	cout << "Работа оператора векторного умножения и присваивания:\t";
+	a = b & c;
+	cout << a;
+	cout << endl;
 
 	system("pause");
 	return 0;
