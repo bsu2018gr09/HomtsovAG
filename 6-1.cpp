@@ -18,7 +18,7 @@ public:
 	/**
 	 * Конструктор по умолчанию.
 	 */
-	Vector() {}
+	Vector() {} //  "мусор" внутри х,y,z. Тебя это не смущает????
 
 	/**
 	 * Деструктор.
@@ -30,12 +30,12 @@ public:
 
 	/**
 	 * Сложение двух векторов.
-	 * Сложение вектора с числом невозможно.
+	 * Сложение вектора с числом невозможно.///А почему??????????????
 	 * @param Vector left
 	 * @param Vector right
 	 * @return Vector
 	 */
-	friend Vector operator + (Vector& left, Vector& right)  
+	friend Vector operator + (Vector& left, Vector& right)  // а почему не член-класса, почему friend??? Обоснуй!!!!
 	{
 		return Vector
 		(
@@ -63,7 +63,7 @@ public:
 
 	/**
 	 * Умножение вектора на число.
-	 * Число должно быть записано в переменную, т.к. происходит передача по ссылке
+	 * Число должно быть записано в переменную, т.к. происходит передача по ссылке ///А зачем??????????????
 	 * @param Vector left
 	 * @param double right
 	 * @return Vector
@@ -95,7 +95,7 @@ public:
 	 * @param Vector right
 	 * @return Vector
 	 */
-	friend Vector operator & (Vector& left, Vector& right)   
+	friend Vector operator & (Vector& left, Vector& right)   // странный выбор значка ))
 	{
 		return Vector
 		(
