@@ -18,7 +18,7 @@ public:
 	/**
 	 * Конструктор по умолчанию.
 	 */
-	Vector() { x = 0; y = 0; z = 0; }
+	Vector() { x = 0; y = 0; z = 0; } // что это за колхоз??????????
 
 	/**
 	 * Деструктор.
@@ -35,7 +35,7 @@ public:
 	 * @param Vector right
 	 * @return Vector
 	 */
-	friend Vector operator + (const Vector& left, const Vector& right)  
+	friend Vector operator + (const Vector& left, const Vector& right)  //хотелось бы услышать обоснование тго, что это не член класса, а дружественная функция!!!
 	{
 		return Vector
 		(
@@ -51,7 +51,7 @@ public:
 	 * @param Vector right
 	 * @return Vector
 	 */
-	friend Vector operator - (const Vector& left, const Vector& right)
+	friend Vector operator - (const Vector& left, const Vector& right) //хотелось бы услышать обоснование тго, что это не член класса, а дружественная функция!!!
 	{
 		return Vector
 		(
@@ -67,7 +67,7 @@ public:
 	 * @param double right
 	 * @return Vector
 	 */
-	friend Vector operator * (const Vector& left, const double right)   
+	friend Vector operator * (const Vector& left, const double right)   //хотелось бы услышать обоснование тго, что это не член класса, а дружественная функция!!!
 	{
 		return Vector
 		(
@@ -83,7 +83,7 @@ public:
 	 * @param Vector right
 	 * @return Vector
 	 */
-	friend Vector operator * (const double left, const Vector& right)
+	friend Vector operator * (const double left, const Vector& right)//хотелось бы услышать обоснование того, что это не член класса, а дружественная функция!!!
 	{
 		return Vector
 		(
