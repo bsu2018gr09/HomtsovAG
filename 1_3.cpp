@@ -65,10 +65,10 @@ bool isPrimeNumber(int number)
 		if (!(number % i))
 		{
 			isPrime = false;
-			break;
+			break; //Очевиднее так: return false; И быстрее!!!!
 		}
 	}
-	return isPrime;
+	return isPrime;//Очевиднее так: return true;
 }
 
 void transpositionLeft(int *arr,  int N, int i, int k)
@@ -109,7 +109,7 @@ int main()
 	for (int i = 0 ; i < cnt; ++i)			//простые по возрастанию
 	for (int j = N - cnt; j < N-1; ++j)
 		if(*(pA + j) > *(pA + j +1))
-			swap(*(pA + j), *(pA + j + 1));
+			swap(*(pA + j), *(pA + j + 1));//никакой оптимизации (((
 	
 	printArr(pA, N);
 	cout << '\n';
