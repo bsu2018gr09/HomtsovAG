@@ -65,7 +65,7 @@ bool isPrimeNumber(int number)
 		if (!(number % i))
 		{
 			isPrime = false;
-			break; //Очевиднее так: return false; И быстрее!!!!
+			return false;
 		}
 	}
 	return isPrime;//Очевиднее так: return true;
@@ -109,7 +109,7 @@ int main()
 	for (int i = 0 ; i < cnt; ++i)			//простые по возрастанию
 	for (int j = N - cnt; j < N-1; ++j)
 		if(*(pA + j) > *(pA + j +1))
-			swap(*(pA + j), *(pA + j + 1));//никакой оптимизации (((
+			swap(*(pA + j), *(pA + j + 1));
 	
 	printArr(pA, N);
 	cout << '\n';
