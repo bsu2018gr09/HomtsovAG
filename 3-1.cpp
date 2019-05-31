@@ -21,7 +21,7 @@ int giveWords(char *str, char **mass)
 		int len = strcspn(p, str1);
 		if (len == 0) break;
 
-		mass[i] = new(nothrow) char[len + 1];// к каждому new должен быть delete. Я что то не вижу его! Или он в стр 44?
+		mass[i] = new(nothrow) char[len + 1];// к каждому new должен быть delete. Я что то не вижу его! Или он в стр 44? ---Да
 		if (!mass)
 		{
 			cout << "No memory";
