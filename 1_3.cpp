@@ -68,7 +68,7 @@ bool isPrimeNumber(int number)
 			return false;
 		}
 	}
-	return isPrime;//Очевиднее так: return true;
+	return true;
 }
 
 void transpositionLeft(int *arr,  int N, int i, int k)
